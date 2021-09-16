@@ -8,7 +8,6 @@ final Uri api =
 Future<dynamic> fetchImage({required String id}) async {
   try {
     final res = await http.post(api, body: {"id": id});
-    print("Result: ${res.body}");
     if (res.statusCode == 200) {
       if (res.body.isNotEmpty) {
         return json.decode(res.body);
@@ -16,7 +15,6 @@ Future<dynamic> fetchImage({required String id}) async {
     }
     return '';
   } catch (e) {
-    print("Error: $e");
     return '';
   }
 }

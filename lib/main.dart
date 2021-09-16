@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:profileui/views/initial/initialPage.dart';
+import 'package:profileui/views/initial/initial.page.dart';
 
 void main() {
-  runApp(InitialPage());
+  runApp(const InitialPage());
 }

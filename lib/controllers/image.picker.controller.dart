@@ -3,8 +3,8 @@ import 'dart:typed_data';
 
 import 'package:get/state_manager.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:profileui/services/fetchImage.dart';
-import 'package:profileui/services/uploadimage.dart';
+import 'package:profileui/services/fetch.image.dart';
+import 'package:profileui/services/upload.image.dart';
 
 class ImagePickerController extends GetxController {
   Rx<XFile> image = XFile('').obs;

@@ -2,14 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:profileui/controllers/imagePickerController.dart';
-import 'package:profileui/views/image/getImage.dart';
+import 'package:profileui/controllers/image.picker.controller.dart';
+import 'package:profileui/views/image/get.image.dart';
 
 class HomePage extends StatelessWidget {
-  final controller = Get.put(ImagePickerController());
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ImagePickerController());
     Size size = Get.size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -21,8 +22,8 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
-              ProfileAvatar(),
+              const Spacer(),
+              const ProfileAvatar(),
               SizedBox(height: size.height * 0.04),
               Text(
                 "Your profile is empty!",
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               MaterialButton(
                 height: Get.size.height * 0.06,
                 color: Colors.blueAccent,
@@ -94,7 +95,7 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(Get.size.height * 0.015),
                 ),
                 onPressed: () {
-                  Get.to(() => FetchImage());
+                  Get.to(() => const FetchImage());
                 },
                 child: Text(
                   "Fetch Screen",
@@ -103,7 +104,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),
@@ -113,17 +114,18 @@ class HomePage extends StatelessWidget {
 }
 
 class ProfileAvatar extends StatelessWidget {
-  final controller = Get.put(ImagePickerController());
+  const ProfileAvatar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final controller = Get.put(ImagePickerController());
+    return SizedBox(
       width: Get.size.width,
       child: Stack(
         alignment: Alignment.center,
         children: [
           Material(
             color: Colors.grey,
-            shape: CircleBorder(),
+            shape: const CircleBorder(),
             child: Container(
               padding: EdgeInsets.all(Get.size.height * 0.003),
               child: Obx(() => CircleAvatar(
@@ -166,10 +168,11 @@ class ChooseIcon extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   const ChooseIcon({
+    Key? key,
     required this.title,
     required this.icon,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +182,7 @@ class ChooseIcon extends StatelessWidget {
       children: [
         Material(
           color: Colors.grey.shade300,
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: InkWell(
             onTap: () => onTap(),
@@ -196,7 +199,7 @@ class ChooseIcon extends StatelessWidget {
         ),
         SizedBox(height: Get.size.height * 0.005),
         Text(
-          "$title",
+          title,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: Get.size.height * 0.018,

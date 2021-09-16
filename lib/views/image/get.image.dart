@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:profileui/controllers/imagePickerController.dart';
+import 'package:profileui/controllers/image.picker.controller.dart';
 
 class FetchImage extends StatelessWidget {
-  final controller = Get.put(ImagePickerController());
+  const FetchImage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = Get.size;
+    final controller = Get.put(ImagePickerController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -19,9 +20,9 @@ class FetchImage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
-              FetchAvatar(),
-              Spacer(),
+              const Spacer(),
+              const FetchAvatar(),
+              const Spacer(),
               MaterialButton(
                 height: Get.size.height * 0.06,
                 color: Colors.blueAccent,
@@ -40,7 +41,7 @@ class FetchImage extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),
@@ -50,12 +51,13 @@ class FetchImage extends StatelessWidget {
 }
 
 class FetchAvatar extends StatelessWidget {
-  final controller = Get.put(ImagePickerController());
+  const FetchAvatar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ImagePickerController());
     return Material(
       color: Colors.grey,
-      shape: CircleBorder(),
+      shape: const CircleBorder(),
       child: Container(
         padding: EdgeInsets.all(Get.size.height * 0.003),
         child: Obx(() => CircleAvatar(
