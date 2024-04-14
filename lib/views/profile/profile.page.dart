@@ -2,16 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:profileui/controllers/image.picker.controller.dart';
+import 'package:profileui/controllers/image_picker_controller.dart';
 import 'package:profileui/views/image/get.image.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ImagePickerController());
-    Size size = Get.size;
+    final ImagePickerController controller = Get.put(ImagePickerController());
+    final Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(Get.size.height * 0.015),
                 ),
                 onPressed: () {
-                  Get.to(() => const FetchImage());
+                  Get.to<void>(() => const FetchImage());
                 },
                 child: Text(
                   "Fetch Screen",
@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key}) : super(key: key);
+  const ProfileAvatar({super.key});
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ImagePickerController());
@@ -168,11 +168,11 @@ class ChooseIcon extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   const ChooseIcon({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:profileui/controllers/image.picker.controller.dart';
+import 'package:profileui/controllers/image_picker_controller.dart';
 
 class FetchImage extends StatelessWidget {
-  const FetchImage({Key? key}) : super(key: key);
+  const FetchImage({super.key});
 
   @override
   Widget build(BuildContext context) {
